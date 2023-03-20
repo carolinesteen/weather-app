@@ -1,4 +1,145 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8f6fd;
+}
+
+#currentLocation {
+  background-color: #fff;
+  border: 1px solid #885df1;
+  color: #885df1;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+#currentLocation:hover {
+  color: #fff;
+  background: #885df1;
+}
+
+.container {
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+}
+
 h1 {
-      text-align: center;
-      color: blueviolet;
-    }
+  font-size: 50px;
+  color: #885df1;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  opacity: 1;
+}
+
+h2 {
+  color: #885df1;
+}
+
+ul {
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+li {
+  color: #7c7c7c;
+  font-size: 16px;
+  list-style: none;
+  font-weight: 100;
+  height: 19px;
+  line-height: 1;
+}
+
+.weather-app {
+  border: 1px solid #dadde1;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.weather-icon {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.temperature {
+  color: rgb(33, 33, 33);
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1;
+}
+.float-left {
+  display: inline-block;
+}
+.units {
+  position: relative;
+  top: -34px;
+}
+
+p {
+  font-size: 12px;
+  color: grey;
+  display: inline-block;
+  margin-right: 0;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  display: inline;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #885df1;
+  --bs-btn-border-color: #0d6efd;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #0a58ca;
+  --bs-btn-active-border-color: #0a53be;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: #0d6efd;
+}
+
+div.card-body {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+div.box {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+div.col {
+  text-align: center;
+}
+
+div.forecast-day {
+  font-size: 15px;
+}
+
+div.forecast-icon {
+  font-size: 40px;
+}
+
+div.forecast-temp {
+  font-size: 10px;
+  color: #f75281;
+}
+
+div.rainy {
+  font-size: 10px;
+  color: gray;
+}
