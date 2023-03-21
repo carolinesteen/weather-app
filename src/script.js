@@ -25,30 +25,29 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function getIcon(get) {
-  let icons = {
-    Clear: "☀️",
-    Clouds: "☁️",
-  };
-}
-
 // Search engine
 
 function displayWeatherCondition(response) {
-  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
+    response.data.temperature.current
   );
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
   document.querySelector("#weather-desc").innerHTML =
-    response.data.weather[0].main;
+    response.data.condition.description;
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
 }
 function searchCity(city) {
-  let apiKey = "de2c40e370d58e257faf07ba4ea95840";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
@@ -76,9 +75,9 @@ function getCurrentLocation(event) {
 function searchLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "de2c40e370d58e257faf07ba4ea95840";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(displayWeatherCondition);
+  let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayWeatherCondition);
 }
 
 /// Button
@@ -93,14 +92,6 @@ function showTemp(response) {
   currentLocation.innerHTML = alert(
     `The temperature at your current location is ${temp}°C`
   );
-}
-
-function handlePosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(url).then(showTemp);
 }
 
 // converter

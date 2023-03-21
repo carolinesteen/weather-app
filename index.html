@@ -19,7 +19,6 @@
       <video autoplay loop muted src="images/cloudy.mp4"></video>
     </div>
     <div class="container">
-      <h1>Weather app</h1>
       <div class="box">
         <div class="card">
           <div class="card-body">
@@ -53,64 +52,68 @@
                 </div>
               </div>
             </form>
-            <h2 id="city"></h2>
-            <ul>
-              <li id="currentDate"></li>
-              <li id="weather-desc">Partly Cloudy</li>
-            </ul>
-            <div class="row">
-              <div class="col-6">
-                <div class="clearfix">
-                  <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                    alt="Cloudy icon"
-                    class="weather-icon float-left"
-                    id="weather-icon"
-                  />
-                  <div class="float-left">
-                    <span class="temperature" id="temperature">19</span
-                    ><span class="units">
-                      <a href="#" id="celsius-link">°C</a> |
-                      <a href="#" id="fahrenheit-link">°F</a>
-                    </span>
+            <div class="WeatherInfo">
+              <div class="row">
+                <div class="col-6">
+                  <h1 id="city"></h1>
+                  <ul>
+                    <li>
+                      <span id="currentDate"></span>,
+                      <span id="weather-desc"></span>
+                    </li>
+                    <li>
+                      Humidity: <strong><span id="humidity"></span>%</strong>,
+                      Wind: <strong><span id="wind"></span> km/h</strong>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-8">
+                  <div class="temperature-container d-flex justify-content-end">
+                    <canvas width="52" height="52"></canvas>
+                    <img
+                      src=""
+                      alt=""
+                      class="weather-icon float-left"
+                      id="weather-icon"
+                    />
+                    <div>
+                      <span class="temperature" id="temperature">13</span
+                      ><span class="unit">°C</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-6">
-                <ul>
-                  <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind: <span id="wind"></span> km/h</li>
-                </ul>
-              </div>
             </div>
             <hr />
-            <div class="row">
-              <div class="col">
-                <div class="forecast-day">Monday</div>
-                <div class="forecast-icon">⛅️</div>
-                <div class="forecast-temp">H 15°C / L 12°C</div>
-              </div>
-              <div class="col">
-                <div class="forecast-day">Tuesday</div>
-                <div class="forecast-icon">🌧️</div>
-                <div class="forecast-temp">H 14°C / L 12°C</div>
-                <div class="rainy">100%</div>
-              </div>
-              <div class="col">
-                <div class="forecast-day">Wednesday</div>
-                <div class="forecast-icon">🌧️</div>
-                <div class="forecast-temp">H 15°C / L 12°C</div>
-                <div class="rainy">80%</div>
-              </div>
-              <div class="col">
-                <div class="forecast-day">Thursday</div>
-                <div class="forecast-icon">🌤️</div>
-                <div class="forecast-temp">H 15°C / L 10°C</div>
-              </div>
-              <div class="col">
-                <div class="forecast-day">Friday</div>
-                <div class="forecast-icon">☁️</div>
-                <div class="forecast-temp">H 16°C / L 10°C</div>
+            <div class="container-forecast">
+              <div class="row">
+                <div class="col">
+                  <div class="forecast-day">Monday</div>
+                  <div class="forecast-icon">⛅️</div>
+                  <div class="forecast-temp">H 15°C / L 12°C</div>
+                </div>
+                <div class="col">
+                  <div class="forecast-day">Tuesday</div>
+                  <div class="forecast-icon">🌧️</div>
+                  <div class="forecast-temp">H 14°C / L 12°C</div>
+                  <div class="rainy">100%</div>
+                </div>
+                <div class="col">
+                  <div class="forecast-day">Wednesday</div>
+                  <div class="forecast-icon">🌧️</div>
+                  <div class="forecast-temp">H 15°C / L 12°C</div>
+                  <div class="rainy">80%</div>
+                </div>
+                <div class="col">
+                  <div class="forecast-day">Thursday</div>
+                  <div class="forecast-icon">🌤️</div>
+                  <div class="forecast-temp">H 15°C / L 10°C</div>
+                </div>
+                <div class="col">
+                  <div class="forecast-day">Friday</div>
+                  <div class="forecast-icon">☁️</div>
+                  <div class="forecast-temp">H 16°C / L 10°C</div>
+                </div>
               </div>
             </div>
             <hr />
