@@ -95,20 +95,20 @@ function showTemp(response) {
 }
 
 // converter
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `(${temperatureElement} * 9/5) + 32`;
-}
+// function convertToFahrenheit(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   temperatureElement.innerHTML = `(${temperatureElement} * 9/5) + 32`;
+// }
 
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${temperatureElement} * 9/5) + 32`;
-}
+// function convertToCelsius(event) {
+//   event.preventDefault();
+//   let temperatureElement = document.querySelector("#temperature");
+//   temperatureElement.innerHTML = `${temperatureElement} * 9/5) + 32`;
+// }
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+// let fahrenheitLink = document.querySelector("#fahrenheit-link");
+// fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+// let celsiusLink = document.querySelector("#celsius-link");
+// celsiusLink.addEventListener("click", convertToCelsius);
