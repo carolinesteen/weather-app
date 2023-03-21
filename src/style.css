@@ -13,6 +13,7 @@ body {
 .video-container {
   position: absolute;
   top: 0;
+  opacity: 0.5;
 }
 
 div.box {
@@ -28,20 +29,55 @@ div.card-body {
 
 /* search form */
 
-.search-form {
+#search-form {
   margin-bottom: 20px;
+  border-bottom: 1px solid #e2dcf3;
+  padding-bottom: 30px;
+}
+
+#city-input {
+  background: #f9f7fe;
+  border: none;
+  padding: 15px 20px;
+  display: inline-block;
+  border-radius: 6px;
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  height: 40px;
+  line-height: 20px;
 }
 
 .form-control {
   display: inline;
 }
+.btn-primary {
+  background: #885df1;
+  font-size: 16px;
+  border: none;
+  height: 40px;
+}
+
+#currentLocation {
+  background-color: #f65282;
+  border: none;
+  color: white;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+#currentLocation:hover {
+  color: #fff;
+  background: #885df1;
+}
+
+/* weather info */
 
 .WeatherInfo {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .WeatherInfo h1 {
-  margin: 20px 0 10px 0;
+  margin: 0px 0 10px 0;
   line-height: 29px;
   font-weight: bold;
   font-size: 30px;
@@ -74,12 +110,8 @@ ul {
   padding: 0;
 }
 
-.weather-app {
-  border: 1px solid #dadde1;
-  padding: 15px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 600px;
+.col-md-6 {
+  padding-top: 20px;
 }
 
 .weather-icon {
@@ -91,17 +123,13 @@ ul {
 #temp-element {
   position: relative;
   top: 10px;
+  margin-right: 20px;
 }
 
 .unit {
   color: black;
   position: relative;
   top: -30px;
-}
-
-.col-sm-8 {
-  margin-top: 70px;
-  padding-right: 30px;
 }
 
 .temperature {
@@ -120,35 +148,6 @@ ul {
 
 /* buttons  */
 
-.btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #885df1;
-  --bs-btn-border-color: #0d6efd;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #0b5ed7;
-  --bs-btn-hover-border-color: #0a58ca;
-  --bs-btn-focus-shadow-rgb: 49, 132, 253;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #0a58ca;
-  --bs-btn-active-border-color: #0a53be;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #0d6efd;
-  --bs-btn-disabled-border-color: #0d6efd;
-}
-
-#currentLocation {
-  background-color: #fff;
-  border: 1px solid #885df1;
-  color: #885df1;
-  text-decoration: none;
-  transition: all 200ms ease;
-}
-#currentLocation:hover {
-  color: #fff;
-  background: #885df1;
-}
-
 /* forecast */
 
 div.col {
@@ -158,11 +157,10 @@ div.col {
 .container-forecast {
   display: flex;
   justify-content: space-evenly;
-}
-
-#forecast-row {
-  display: flex;
-  justify-content: space-evenly;
+  padding-top: 20px;
+  border-top: 1px solid #e2dcf3;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2dcf3;
 }
 
 div.forecast-day {
@@ -184,6 +182,7 @@ div.rainy {
 }
 
 .open-source {
-  color: black;
+  color: gray;
   margin-left: 10px;
+  font-size: 12px;
 }
