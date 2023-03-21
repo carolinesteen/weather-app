@@ -44,6 +44,8 @@ function displayWeatherCondition(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
+
+  celciusTemp = response.data.temperature.current;
 }
 function searchCity(city) {
   let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
@@ -64,20 +66,18 @@ dateElement.innerHTML = formatDate(currentTime);
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
-searchCity("Los Angeles");
-
 ///// Get current location weather
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+  console.log(event.data);
 }
 
 function searchLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}`;
-  axios.get(apiUrl).then(displayWeatherCondition);
+  let apiUrl2 = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=42e4tbb0e36fc43f4faaf7e2bob6c342&units=metric`;
+  axios.get(apiUrl2).then(displayWeatherCondition);
 }
 
 /// Button
@@ -85,30 +85,31 @@ function searchLocation(position) {
 let locationButton = document.querySelector("#currentLocation");
 locationButton.addEventListener("click", getCurrentLocation);
 
-/// position Location Function
-function showTemp(response) {
-  let temp = Math.round(response.data.main.temp);
-  let currentLocation = document.querySelector("#currentLocation");
-  currentLocation.innerHTML = alert(
-    `The temperature at your current location is ${temp}°C`
-  );
+// converter
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
-// converter
-// function convertToFahrenheit(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector("#temperature");
-//   temperatureElement.innerHTML = `(${temperatureElement} * 9/5) + 32`;
-// }
+function convertToCelcius(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemp);
+}
 
-// function convertToCelsius(event) {
-//   event.preventDefault();
-//   let temperatureElement = document.querySelector("#temperature");
-//   temperatureElement.innerHTML = `${temperatureElement} * 9/5) + 32`;
-// }
+let fahrenheitLink = document.querySelector("#farenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
-// let fahrenheitLink = document.querySelector("#fahrenheit-link");
-// fahrenheitLink.addEventListener("click", convertToFahrenheit);
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", convertToCelcius);
 
-// let celsiusLink = document.querySelector("#celsius-link");
-// celsiusLink.addEventListener("click", convertToCelsius);
+let celciusTemp = null;
+
+searchCity("Los Angeles");

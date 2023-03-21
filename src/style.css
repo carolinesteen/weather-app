@@ -35,8 +35,17 @@ div.card-body {
   padding-bottom: 30px;
 }
 
+.col-7 {
+  padding-right: 5px;
+}
+
+.col-2 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 #city-input {
-  background: #f9f7fe;
+  background: #efebf9;
   border: none;
   padding: 15px 20px;
   display: inline-block;
@@ -50,17 +59,25 @@ div.card-body {
 .form-control {
   display: inline;
 }
-.btn-primary {
+#search-button {
   background: #885df1;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   height: 40px;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+#search-button:hover {
+  color: #fff;
+  background: #f65282;
 }
 
 #currentLocation {
   background-color: #f65282;
   border: none;
+  font-size: 15px;
   color: white;
+  height: 40px;
   text-decoration: none;
   transition: all 200ms ease;
 }
@@ -146,7 +163,14 @@ ul {
   top: -34px;
 }
 
-/* buttons  */
+#temp-element .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+#temp-element .active:hover {
+  text-decoration: none;
+}
 
 /* forecast */
 
