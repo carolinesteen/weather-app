@@ -27,6 +27,42 @@ function formatDate(date) {
 
 // Search engine
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast-container");
+
+  let forecastHTML = `<div class="row" id="forecast-row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col">
+                  <div class="forecast-day">${day}</div>
+                  <img
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.condition.icon}.png"
+          alt=""
+          width="42"
+        />
+                  <div class="forecast-temp">
+                    <span class="high">14°C / </span>
+                    <span class="low">12°C </span>
+                  </div>
+                </div>
+                `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temperature").innerHTML = Math.round(
@@ -46,7 +82,10 @@ function displayWeatherCondition(response) {
   );
 
   celciusTemp = response.data.temperature.current;
+
+  getForecast(response.data.coordinates);
 }
+
 function searchCity(city) {
   let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -113,32 +152,3 @@ celciusLink.addEventListener("click", convertToCelcius);
 let celciusTemp = null;
 
 searchCity("Los Angeles");
-
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast-container");
-
-  let forecastHTML = `<div class="row" id="forecast-row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-    <div class="col">
-                  <div class="forecast-day">${day}</div>
-                  <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
-          alt=""
-          width="42"
-        />
-                  <div class="forecast-temp">
-                    <span class="high">14°C / </span>
-                    <span class="low">12°C </span>
-                  </div>
-                </div>
-                `;
-  });
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
-}
-displayForecast();
