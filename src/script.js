@@ -27,10 +27,10 @@ function formatDate(date) {
 
 // Search engine
 
-function getForecast(coordinates) {
-  console.log(coordinates);
+function getForecast(city) {
+  console.log(city);
   let apiKey = "42e4tbb0e36fc43f4faaf7e2bob6c342";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -106,7 +106,7 @@ function displayWeatherCondition(response) {
 
   celciusTemp = response.data.temperature.current;
 
-  getForecast(response.data.coordinates);
+  getForecast(response.data.city);
 }
 
 function searchCity(city) {

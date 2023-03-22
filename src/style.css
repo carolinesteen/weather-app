@@ -50,7 +50,7 @@ div.card-body {
   padding: 15px 20px;
   display: inline-block;
   border-radius: 6px;
-  color: rgba(39, 33, 66, 0.4);
+  color: rgba(51, 48, 62, 0.4);
   font-size: 16px;
   height: 40px;
   line-height: 20px;
@@ -122,6 +122,14 @@ div.card-body {
   list-style: none;
 }
 
+#weather-desc {
+  display: inline-block;
+}
+
+#weather-desc:first-letter {
+  text-transform: capitalize;
+}
+
 ul {
   margin: 0 0 10px;
   padding: 0;
@@ -145,6 +153,7 @@ ul {
 
 .unit {
   color: rgb(33, 33, 33);
+  font-size: 13px;
   position: relative;
   top: -30px;
 }
@@ -158,14 +167,11 @@ ul {
 .float-left {
   display: inline-block;
 }
-.units {
-  position: relative;
-  top: -34px;
-}
 
 #temp-element .active {
   color: rgb(33, 33, 33);
   cursor: default;
+  text-decoration: none;
 }
 
 #temp-element .active:hover {
