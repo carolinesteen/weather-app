@@ -179,7 +179,6 @@ div.col {
 }
 
 .forecast-container {
-  display: flex;
   justify-content: space-evenly;
   padding-top: 20px;
   border-top: 1px solid #e2dcf3;
@@ -188,12 +187,17 @@ div.col {
 }
 
 div.forecast-day {
-  font-size: 15px;
+  font-size: 13px;
   color: rgba(39, 33, 66, 0.4);
 }
 
 div.forecast-icon {
   font-size: 40px;
+}
+
+#forecast-row {
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 div.forecast-temp {

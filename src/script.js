@@ -34,29 +34,52 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast-container");
 
   let forecastHTML = `<div class="row" id="forecast-row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col">
-                  <div class="forecast-day">${day}</div>
+                  <div class="forecast-day">${formatDay(forecastDay.time)}</div>
                   <img
-          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.condition.icon}.png"
+          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+            forecastDay.condition.icon
+          }.png"
           alt=""
           width="42"
         />
                   <div class="forecast-temp">
-                    <span class="high">14°C / </span>
-                    <span class="low">12°C </span>
+                    <span class="high">${Math.round(
+                      forecastDay.temperature.maximum
+                    )}°C / </span>
+                    <span class="low">${Math.round(
+                      forecastDay.temperature.minimum
+                    )}°C </span>
                   </div>
                 </div>
                 `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
