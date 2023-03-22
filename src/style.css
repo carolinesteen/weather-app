@@ -200,6 +200,10 @@ div.forecast-temp {
   color: #f75281;
 }
 
+.forecast-temp .low {
+  opacity: 0.5;
+}
+
 div.rainy {
   font-size: 10px;
   color: gray;
