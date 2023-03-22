@@ -113,3 +113,32 @@ celciusLink.addEventListener("click", convertToCelcius);
 let celciusTemp = null;
 
 searchCity("Los Angeles");
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-container");
+
+  let forecastHTML = `<div class="row" id="forecast-row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col">
+                  <div class="forecast-day">${day}</div>
+                  <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+                  <div class="forecast-temp">
+                    <span class="high">14°C / </span>
+                    <span class="low">12°C </span>
+                  </div>
+                </div>
+                `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+displayForecast();

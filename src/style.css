@@ -108,7 +108,7 @@ div.card-body {
   font-weight: normal;
 }
 .WeatherInfo .temperature {
-  color: black;
+  color: rgb(33, 33, 33);
   margin-left: 10px;
   font-size: 50px;
   line-height: 1;
@@ -144,7 +144,7 @@ ul {
 }
 
 .unit {
-  color: black;
+  color: rgb(33, 33, 33);
   position: relative;
   top: -30px;
 }
@@ -178,7 +178,7 @@ div.col {
   text-align: center;
 }
 
-.container-forecast {
+.forecast-container {
   display: flex;
   justify-content: space-evenly;
   padding-top: 20px;
@@ -189,6 +189,7 @@ div.col {
 
 div.forecast-day {
   font-size: 15px;
+  color: rgba(39, 33, 66, 0.4);
 }
 
 div.forecast-icon {
