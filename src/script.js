@@ -60,7 +60,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-    <div class="col">
+    <div class="col-2 justify-content-evenly">
                   <div class="forecast-day">${formatDay(forecastDay.time)}</div>
                   <img
           src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${

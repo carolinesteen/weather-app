@@ -146,9 +146,7 @@ ul {
 }
 
 #temp-element {
-  position: relative;
-  top: 10px;
-  margin-right: 20px;
+  padding-top: 10px;
 }
 
 .unit {
