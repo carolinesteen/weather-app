@@ -152,16 +152,22 @@ ul {
 .unit {
   color: rgb(33, 33, 33);
   font-size: 13px;
+  text-align: top;
   position: relative;
   top: -30px;
 }
 
 @media (max-width: 400px) {
   #temperature {
-    font-size: 30px;
+    font-size: 40px;
   }
-  #unit {
-    font-size: 10px;
+}
+
+@media (max-width: 400px) {
+  .unit {
+    font-size: 8px;
+    position: relative;
+    top: -15px;
   }
 }
 
