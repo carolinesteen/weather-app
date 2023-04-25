@@ -79,7 +79,8 @@ function displayForecast(response) {
 }
 
 function displayWeatherCondition(response) {
-  document.querySelector("#city").innerHTML = response.data.city;
+  document.querySelector("#city").innerHTML =
+    response.data.city + ", " + response.data.country;
   document.querySelector("#temperature").innerHTML =
     Math.round(response.data.temperature.current) + "°";
   document.querySelector("#humidity").innerHTML =
@@ -98,6 +99,7 @@ function displayWeatherCondition(response) {
   celciusTemp = response.data.temperature.current;
 
   getForecast(response.data.city);
+  console.log(response.data);
 }
 
 function searchCity(city) {
